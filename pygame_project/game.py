@@ -5,7 +5,7 @@ import pygame.sprite
 from pygame_project.data.game_data.constants_data import *
 
 
-def initialization(number):
+def initialization(number) -> None:
     global clock, screen, hero, slimes, counter_healthes, Sprites, Healthes, Slimes, health_img
     pygame.init()
     screen = pygame.display.set_mode(SIZE)
@@ -73,7 +73,8 @@ def initialization(number):
         counter_healthes[i].sprite.rect.y = 10
 
 
-def game():
+def game() -> None:
+    #Игровой процесс
     global number
     pygame.mixer.music.load('data\sounds\game_background_sound.mp3')
     pygame.mixer.music.play(-1)
@@ -125,7 +126,8 @@ def game():
             clock.tick(FPS)
 
 
-def start_screen():
+def start_screen() -> None:
+    #Заставка
     pygame.mixer.music.load(r'data\sounds\background_sound.mp3')
     pygame.mixer.music.play(-1)
     pygame.mixer.music.set_volume(0.05)
@@ -175,6 +177,7 @@ def start_screen():
 
 class Hero(pygame.sprite.Sprite):
     def __init__(self, images):
+        # Класс главного героя
         super().__init__()
         self.back = images[0]
         self.forward = images[1]
@@ -277,6 +280,7 @@ class Hero(pygame.sprite.Sprite):
 
 class Slime(pygame.sprite.Sprite):
     def __init__(self, image):
+        # Класс для мобов-слизней
         super(Slime, self).__init__()
         self.sprite1 = pygame.sprite.Sprite()
         self.sprite1.image = image
@@ -309,6 +313,7 @@ class Slime(pygame.sprite.Sprite):
 
 class Health(pygame.sprite.Sprite):
     def __init__(self, image):
+        # Класс контролирующий здоровье персонажа
         super(Health, self).__init__()
         self.sprite = pygame.sprite.Sprite()
         self.sprite.image = image
@@ -316,7 +321,9 @@ class Health(pygame.sprite.Sprite):
         self.sprite.rect.center = (WIDTH - 10, 10)
         Healthes.add(self.sprite)
 
-def main_algorithm():
+
+def main_algorithm() -> None:
+    # Основной цикл контролирующий ход игры
     global number
     number = -1
     while True:
