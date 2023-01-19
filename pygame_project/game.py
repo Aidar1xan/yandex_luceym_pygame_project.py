@@ -54,7 +54,7 @@ def initialization(number) -> None:
 
     slimes_images = [Blue_slime_img, Green_slime_img, Orange_slime_img, Pink_slime_img]
     slimes = []
-    rangee = [15, 20, 25, 30]
+    rangee = [20, 30, 40, 50]
 
     for i in range(rangee[number]):
         slimes.append(Slime(slimes_images[random.randrange(1, 4)]))
@@ -74,7 +74,7 @@ def initialization(number) -> None:
 
 
 def game() -> None:
-    #Игровой процесс
+    # Игровой процесс
     global number
     pygame.mixer.music.load('data\sounds\game_background_sound.mp3')
     pygame.mixer.music.play(-1)
@@ -127,7 +127,7 @@ def game() -> None:
 
 
 def start_screen() -> None:
-    #Заставка
+    # Заставка
     pygame.mixer.music.load(r'data\sounds\background_sound.mp3')
     pygame.mixer.music.play(-1)
     pygame.mixer.music.set_volume(0.05)
